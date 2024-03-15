@@ -80,9 +80,8 @@ console.log(whoIsBigger(65, 56));
   Es.: splitMe("I love coding") => ritorna ["I", "Love", "Coding"]
 */
 
-const splitMe = (str) => {
-  const wordsArray = str.split(" ");
-};
+const splitMe = (str) =>
+  str.split(" ").map((word) => word.charAt(0).toUpperCase() + word.slice(1));
 
 console.log(splitMe("ciao come stai tutto bene"));
 
@@ -91,19 +90,47 @@ console.log(splitMe("ciao come stai tutto bene"));
   Se il valore booleano è true la funzione deve ritornare la stringa senza il primo carattere, altrimenti la deve ritornare senza l'ultimo.
 */
 
+const deleteOne = (str, value) => (value ? str.slice(1) : str.slice(0, -1));
+console.log(deleteOne("ciao come va", false));
+console.log(deleteOne("ciao come va", true));
+
 /* ESERCIZIO 5
   Crea una funzione chiamata "onlyLetters" che riceve una stringa come parametro e la ritorna eliminando tutte le cifre numeriche.
 
   Es.: onlyLetters("I have 4 dogs") => ritorna "I have dogs"
 */
 
+const onlyLetters = (str) => str.replace(/[0-9]/g, "");
+console.log(onlyLetters("I have 4 dogs"));
+console.log(onlyLetters("I hav23e 4 dog213s"));
+
 /* ESERCIZIO 6
   Crea una funzione chiamata "isThisAnEmail" che riceve una stringa come parametro e ritorna true se la stringa è un valido indirizzo email.
 */
 
+const isThisAnEmail = (mail) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail);
+console.log(isThisAnEmail("vasco.panigi@hotmail.it"));
+console.log(isThisAnEmail("vasco.panigihotmailit"));
+
 /* ESERCIZIO 7
   Scrivi una funzione chiamata "whatDayIsIt" che ritorna il giorno della settimana corrente.
 */
+
+const whatDayIsIt = () => {
+  const dayOfTheWeek = [
+    "Domenica",
+    "Lunedì",
+    "Martedì",
+    "Mercoledì",
+    "Giovedì",
+    "Venerdì",
+    "Sabato",
+  ];
+  const today = new Date().getDay();
+  return dayOfTheWeek[today];
+};
+
+console.log(whatDayIsIt());
 
 /* ESERCIZIO 8
   Scrivi una funzione chiamata "rollTheDices" che riceve un numero come parametro.
