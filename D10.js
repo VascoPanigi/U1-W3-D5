@@ -445,17 +445,48 @@ tDsText();
   Scrivi una funzione per aggiungere un background di colore rosso a ogni link all'interno della pagina.
 */
 
+const allAncTags = document.querySelectorAll("a");
+
+const paintInRed = () =>
+  allAncTags.forEach((a) => (a.style.backgroundColor = "red"));
+paintInRed();
+
 /* ESERCIZIO 24
   Scrivi una funzione per aggiungere un nuovo elemento alla lista non ordinata con id "myList".
 */
+
+const myList = document.getElementById("myList");
+
+const addItems = () => {
+  const newLi = document.createElement("li");
+  myList.appendChild(newLi);
+};
+
+addItems();
 
 /* ESERCIZIO 25
   Scrivi una funzione per svuotare la lista non ordinata con id "myList".
 */
 
+const removeItems = () => {
+  const myList = document.getElementById("myList");
+  myList.innerHTML = "";
+};
+
+removeItems();
+
 /* ESERCIZIO 26
   Scrivi una funzione per aggiungere ad ogni tag <tr> la classe CSS "test"
 */
+
+function addClass() {
+  const allTRs = document.querySelectorAll("tr");
+  allTRs.forEach((trElement) => {
+    trElement.classList.add("test");
+  });
+}
+
+addClass();
 
 // [EXTRA] JS Avanzato
 
@@ -471,20 +502,50 @@ tDsText();
 
 */
 
+//todo 1. creare una row equivalente al N fornito
+//todo 2. aggiungere un asterisco nelle stesse modalita' di cui sopra
+
+const halfTree = (n) => {
+  for (let i = 1; i <= n; i++) {
+    let newRow = "";
+    for (let x = 1; x <= i; x++) {
+      newRow += "*";
+    }
+    console.log(newRow);
+  }
+};
+
+halfTree(3);
+
 /* ESERCIZIO 28
-  Crea una funzione chiamata "tree" che riceve un numero come parametro e costruisce un albero di "*" (asterischi) dell'altezza fornita.
+Crea una funzione chiamata "tree" che riceve un numero come parametro e costruisce un albero di "*" (asterischi) dell'altezza fornita.
 
-  Esempio:
-  tree(3)
+Esempio:
+tree(3)
 
-    *
-   ***
-  *****
+*
+***
+*****
 
 */
 
+const tree = (n) => {
+  for (let i = 1; i <= n; i++) {
+    let newRow = "";
+    for (let y = 1; y <= n - i; y++) {
+      newRow += " ";
+    }
+    for (let x = 1; x <= 2 * i - 1; x++) {
+      newRow += "*";
+    }
+    console.log(newRow);
+  }
+};
+
+tree(5);
+
 /* ESERCIZIO 29
-  Crea una funzione chiamata "isItPrime" che riceve un numero come parametro e ritorna true se il numero fornito è un numero primo.
+Crea una funzione chiamata "isItPrime" che riceve un numero come parametro e ritorna true se il numero fornito è un numero primo.
 */
 
 /* Questo array viene usato per gli esercizi. Non modificarlo. */
