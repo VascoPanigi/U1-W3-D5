@@ -549,3 +549,16 @@ Crea una funzione chiamata "isItPrime" che riceve un numero come parametro e rit
 */
 
 /* Questo array viene usato per gli esercizi. Non modificarlo. */
+
+const isItPrime = (n) => {
+  for (let i = 2; i <= Math.sqrt(n); i++) {
+    if (n % i === 0) {
+      return false;
+    }
+
+    return true;
+  }
+};
+
+console.log(isItPrime(7));
+console.log(isItPrime(8));
